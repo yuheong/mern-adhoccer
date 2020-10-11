@@ -5,7 +5,6 @@ let listJobs = async (req, res) => {
 
   try {
     res.json({
-      message: "Listing all jobs",
       data: allJobs,
     });
   } catch (err) {
@@ -23,7 +22,6 @@ let createJob = async (req, res) => {
   try {
     await job.save();
     res.json({
-      message: "New job created",
       data: job,
     });
   } catch (err) {
@@ -35,7 +33,6 @@ let getJob = async (req, res) => {
   const job = await jobModel.findById(req.params.job_id);
   try {
     res.json({
-      message: "Job retrieved",
       data: job,
     });
   } catch (err) {
@@ -62,7 +59,6 @@ let updateJob = async (req, res) => {
       upsert: true,
     });
     res.json({
-      message: "Job updated",
       data: job,
     });
   } catch (err) {
