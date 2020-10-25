@@ -2,6 +2,4 @@ language: node_js
 node_js:
     - 12
 services: mongodb
-before_script: cd backend
-install:
-    - npm install
+before_install: cd backend
