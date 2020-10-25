@@ -1,12 +1,11 @@
 language: node_js
 node_js:
-    - 12
+- 12
 services: mongodb
 before_install: cd backend
-
 deploy:
-    provider: heroku
-    api_key:
-      secure: "3f9ecd04-59e8-4608-bf2e-81d5a94773dc"
-    app: adhoccer
-    on: main
+  provider: heroku
+  api_key:
+    secure: Uc23wSoqB6Sm8NcRlaTLoogDyJgZC2BRDVJTELKtCbrWd1tHcEJOvUXFWOnxOppMSX9wv9QMb/ELKTf2kr6f5C0SwX2jG37k00pGpGIPJzD4yfKQYD82lKys3e4ljD0qlWF3HxdZEa2wKIVdcVEwocQyp1u4dsWtiw6hl28I2IoXXpehMhfoT9PfRZ8zGRQPp8e37rZNIjybEpQ/vqOPOl5DJZwwdlKyu9uNBiAJxkbOhlTe9Vo6BZe6RrfvGLsMMq2YW8pJmdkrktFFH+Ap4yluJSMNVIKOsJHZKI8BQLbgjhWaiiWJ8KcN718gKwamp6omfhE0sToZiUhrbjJA2HeO1tHtqPCx6fNH5/3Rgf8bG6IxiBnzqte/FJue30W0qWbllIUrGlK17L1jIEuxnlBPR0TzcNJxZIwLCuZpVgLYdZ4U6U7fS+dUiEO3WfjBPMAeDRyPDevBDMepWVBEChbSPFvsbB+iEbQYuxgik8tNc1QwX8I+944lsJr7YjtezN45khe/Ga4tZAxMoluQf/Cboh/voncPIAh3IyLUtBVD+VMWdWE0503Pk+cEDSSOwuydyqA4Kw825XoVS5zpzA24lY2/0TTbxYPin/vii1IjxrrCruh2nu90VLxgqW3wQN40rS0FeqrBpsYurOGAGKCtPGQ6Zpu2UynEJwkEXew=
+  app: adhoccer
+  on: main

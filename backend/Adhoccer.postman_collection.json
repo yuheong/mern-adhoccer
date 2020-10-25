@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "9aa548c3-070c-4924-81d6-268a3487109e",
+		"name": "Adhoccer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/jobs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pastry Chef\",\n    \"category\": \"Chef\",\n    \"description\": \"Pastry chef at Prima Deli\",\n    \"pay\": 5000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/jobs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "waiter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Job",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Class 4 Lorry Driver\",\n    \"description\": \"Driver for petrochemical firm\",\n    \"pay\": 5000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/jobs/5f9586d09b69461645be6dc6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jobs",
+						"5f9586d09b69461645be6dc6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/jobs/5f9586d09b69461645be6dc6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jobs",
+						"5f9586d09b69461645be6dc6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete job",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/jobs/5f9586d09b69461645be6dc6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jobs",
+						"5f9586d09b69461645be6dc6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
