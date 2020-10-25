@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 let routes = require("./routes/job.routes");
 var port = process.env.PORT || 8080;
+var mongoURL = process.env.MONGO_URL || "mongodb://localhost/adhoccer";
 
 // Configure bodyparser to handle post requests
 app.use(
@@ -14,8 +15,13 @@ app.use(
 );
 app.use(bodyParser.json());
 
-mongoose.set('useFindAndModify', false);
-mongoose.connect("mongodb://localhost/adhoccer", { useNewUrlParser: true });
+mongoose.set("useFindAndModify", false);
+
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 let db = mongoose.connection;
 
 if (!db) console.log("Error connecting to db");

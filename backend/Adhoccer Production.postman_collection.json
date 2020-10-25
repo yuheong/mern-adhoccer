@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "86f6490f-7153-4316-ace1-f042f47203db",
+		"name": "Adhoccer Production",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check server health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/api/jobs",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pastry Chef\",\n    \"category\": \"Chef\",\n    \"description\": \"Pastry chef at Prima Deli\",\n    \"pay\": 5000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/api/jobs",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "waiter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Job",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bartender at Atlas Bar\",\n    \"description\": \"Experienced bartender at Atlas Bar needed. 5 Years of experience required, with expertise in all types of cocktail-making\",\n    \"pay\": 4500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/api/jobs/5f9598b52754282445d4a965",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"jobs",
+						"5f9598b52754282445d4a965"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/api/jobs/5f9598b52754282445d4a965",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"jobs",
+						"5f9598b52754282445d4a965"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete job",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://adhoccer.herokuapp.com/api/jobs/5f9598242754282445d4a964",
+					"protocol": "https",
+					"host": [
+						"adhoccer",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"jobs",
+						"5f9598242754282445d4a964"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
