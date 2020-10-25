@@ -17,10 +17,8 @@ app.use(bodyParser.json());
 mongoose.connect("mongodb://localhost/adhoccer", { useNewUrlParser: true });
 let db = mongoose.connection;
 
-if(!db)
-    console.log("Error connecting to db")
-else
-    console.log("DB connected successfully")
+if (!db) console.log("Error connecting to db");
+else console.log("DB connected successfully");
 
 app.use("/api", routes);
 
@@ -31,3 +29,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+module.exports = app;
