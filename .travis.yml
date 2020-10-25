@@ -9,3 +9,4 @@ deploy:
     api_key:
       secure: "3f9ecd04-59e8-4608-bf2e-81d5a94773dc"
     app: adhoccer
+    on: main
