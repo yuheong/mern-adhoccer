@@ -21,7 +21,7 @@ let createJob = async (req, res) => {
 
   try {
     await job.save();
-    res.json({
+    res.status(201).json({
       data: job,
     });
   } catch (err) {
