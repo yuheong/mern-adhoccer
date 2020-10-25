@@ -54,9 +54,9 @@ let deleteJob = async (req, res) => {
 
 let updateJob = async (req, res) => {
   try {
-    console.log(req.body);
-    const job = await jobModel.findByIdAndUpdate(req.params.id, req.body, {
+    const job = await jobModel.findByIdAndUpdate(req.params.job_id, req.body, {
       upsert: true,
+      new: true,
     });
     res.json({
       data: job,

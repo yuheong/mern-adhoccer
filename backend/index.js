@@ -14,6 +14,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
+mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/adhoccer", { useNewUrlParser: true });
 let db = mongoose.connection;
 
