@@ -14,8 +14,24 @@ app.use(
 );
 app.use(bodyParser.json());
 
-mongoose.set('useFindAndModify', false);
-mongoose.connect("mongodb://localhost/adhoccer", { useNewUrlParser: true });
+const url =
+  "mongodb+srv://db_user:832kMqIkHhHwEGZN@cluster0.hjdhg.mongodb.net/adhoccer?retryWrites=true&w=majority";
+
+const connectionParams = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.set("useFindAndModify", false);
+mongoose
+  .connect(url, connectionParams)
+  .then(() => {
+    console.log("Connected to database (MongoDB Atlas)");
+  })
+  .catch((err) => {
+    console.error(`Error connecting to the database. \n${err}`);
+  });
 let db = mongoose.connection;
 
 if (!db) console.log("Error connecting to db");
