@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 let routes = require("./routes/job.routes");
 var port = process.env.PORT || 8080;
@@ -14,6 +15,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(cors());
 
 mongoose.set("useFindAndModify", false);
 
