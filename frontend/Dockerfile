@@ -1,6 +1,6 @@
 FROM node:12.18.2
  
-WORKDIR /var/app
+WORKDIR /app
 
 COPY package.json /var/app/package.json
  
