@@ -10,3 +10,4 @@ deploy:
   provider: gae
   keyfile: adhoccer-6c80dfc646e9.json
   project: adhoccer
+  on: main

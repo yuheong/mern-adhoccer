@@ -1,1 +1,4 @@
 runtime: nodejs12
+
+env_variables:
+    MONGO_URL: mongodb+srv://db_user:832kMqIkHhHwEGZN@cluster0.hjdhg.mongodb.net/adhoccer?retryWrites=true&w=majority
