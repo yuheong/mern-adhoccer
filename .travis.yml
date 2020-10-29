@@ -2,10 +2,11 @@ language: node_js
 node_js:
 - 12
 services: mongodb
-before_install: cd backend
+before_install:
+- openssl aes-256-cbc -K $encrypted_c121153bf40d_key -iv $encrypted_c121153bf40d_iv
+  -in adhoccer-6c80dfc646e9.json.enc -out backend/adhoccer-6c80dfc646e9.json -d
+- cd backend
 deploy:
-  provider: heroku
-  api_key:
-    secure: D3aDZRUv7vjQpeI05sc+MUi3WCcTyOzvNS+AHtcOp2+2P9A5nIaxvnD7QOhBZDKHamWbxTzwzzIv7ytgsPVdVwvC8+7OfcOn039dxOqDXrNjIQ5Q+nDf505Oiu+RGObhoJRTC7/Oq8s53rGFgwCVG5/G/ZQ44ATGdw5ftzWO84apIyYof6nk6py2ruUWXTODzW3wLjDRstQZlJ+ZeiGYk4vIDzwf+ZcSERgH9+vGK0EKWUvYQ4ZsdSkol41LEu0tf+yocaFXCLZrBns4Nk98FnYODNUwXjELKh6Xs5Q3wogBUoqBk0H5y5Cxs7ORFCs5IYGF5NSPfixOx29Zcd6RdKX6YjuM9RSWAWTOirjw+Eg0Olk6lZN/uZJSsIxiu50pH7Zx0FUZdLMpwKITLuq09IIT5Rjc0VKJ3VndRTUVjRcJfmf+luNO0TqDELrTLV/PQjGMb+sfZu0Jnbq+SM/2BRrKPKUNhEt98c40EEDjvD/blG5qEvDJtyANhhC1z2rL3IQt00crbgxN/eAX3O8Yr/tXPTQkcUeTzzErLhU5HXJS9iATpvPReM6lFxVBGr1XuqEWM90xywHKRrL9b1FWg7F4CasTskYrcP7VxLWfg+RZ+Km5syhURPFnqrZFbeNKUyQAtF+V6ESrLr0CYpbDjD8wG1UWp2vjfRwixdCn0mY=
-  app:
-    main: adhoccer
+  provider: gae
+  keyfile: adhoccer-6c80dfc646e9.json
+  project: adhoccer
