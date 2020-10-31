@@ -9,9 +9,10 @@ import {
   withRouter,
 } from "react-router-dom";
 import "./App.css";
-import api from "./api";
 import Home from "./Home";
 import CreateJob from "./CreateJob";
+import CreateJobSuccess from "./CreateJobSuccess";
+import ViewJob from "./ViewJob";
 
 const { Header, Content } = Layout;
 
@@ -26,7 +27,7 @@ function App() {
               <a href="/">View Jobs</a>
             </Menu.Item>
             <Menu.Item key="2">
-              <a href="/create">Create Job</a>
+              <a href="/jobs/create">Create Job</a>
             </Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
@@ -35,7 +36,9 @@ function App() {
         <Content style={{ padding: "0 50px" }}>
           <div className="site-layout-content">
             <Switch>
-              <Route path="/create" component={CreateJob} />
+              <Route path="/jobs/create/success" component={CreateJobSuccess} />
+              <Route path="/jobs/create" component={CreateJob} />
+              <Route path="/jobs/:job_id" component={ViewJob} />
               <Route path="/" component={Home} />
             </Switch>
           </div>

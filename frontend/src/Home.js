@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Card, Space, List } from "antd";
+import { Link, useHistory } from "react-router-dom";
 import "./App.css";
 import api from "./api";
 
 export default function Home(props) {
   const [jobs, setJobs] = useState([]);
-  
+  let history = useHistory();
+
   useEffect(() => {
-    api.getJobs().then((res) => {
+    api.listJobs().then((res) => {
       setJobs(res.data);
     });
   }, []);
@@ -20,6 +21,45 @@ export default function Home(props) {
   return (
     <>
       <h1>All Job Listings</h1>
+
+      <List
+        grid={{
+          gutter: 16,
+          xs: 1,
+          sm: 1,
+          md: 2,
+          lg: 3,
+          xl: 4,
+          xxl: 4,
+        }}
+        dataSource={jobs}
+        renderItem={(job) => (
+          <List.Item>
+            <Card
+              hoverable
+              onClick={() => {
+                history.push(`/jobs/${job._id}`);
+              }}
+              cover={
+                <img
+                  src={
+                    "https://img.freepik.com/free-photo/smiling-van-driver-portrait_53419-6444.jpg?size=626&ext=jpg&ga=GA1.2.109734625.1598054400"
+                  }
+                  height={300}
+                  width={300}
+                  alt={"Job-specific image"}
+                />
+              }
+              key={job._id}
+              title={job.category}
+              style={{ width: 300 }}
+            >
+              <p>{job.name}</p>
+            </Card>
+          </List.Item>
+        )}
+      />
+
       <Space size={"middle"}>
         {jobs.map((job) => {
           let jobImg;
@@ -35,7 +75,7 @@ export default function Home(props) {
             <Card
               hoverable
               onClick={() => {
-                alert();
+                history.push(`/jobs/${job._id}`);
               }}
               key={job._id}
               cover={

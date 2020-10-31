@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, Space, Form, Input, Button, Select, Row } from "antd";
-import { Link } from "react-router-dom";
+import {
+  Card,
+  Space,
+  Form,
+  Input,
+  Button,
+  Select,
+  Row,
+  InputNumber,
+} from "antd";
+import { useHistory } from "react-router-dom";
 import "./App.css";
 import api from "./api";
 
@@ -14,11 +23,20 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-export default function CreateJob() {
+export default function CreateJob(props) {
   const [form] = Form.useForm();
+  let history = useHistory();
 
   const onFinish = (values) => {
-    console.log(values);
+    const jobObject = JSON.stringify(values);
+    api
+      .createJob(jobObject)
+      .then((res) => {
+        history.push("/jobs/create/success", [values]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const onReset = () => {
@@ -28,9 +46,15 @@ export default function CreateJob() {
   const onFill = () => {
     form.setFieldsValue({
       name: "Event DJ at Club Med",
-      category: "deejay",
+      category: "Deejay",
+      pay: 3500,
+      description: "Blah",
     });
   };
+
+  function onChange(value) {
+    console.log("changed", value);
+  }
 
   return (
     <Row
@@ -49,13 +73,23 @@ export default function CreateJob() {
           rules={[{ required: true }]}
         >
           <Select
-            placeholder="Select aa option and change input text above"
+            placeholder="Select an option"
             allowClear
           >
-            <Option value="waiter">Waiter</Option>
-            <Option value="deejay">Deejay</Option>
-            <Option value="driver">Driver</Option>
+            <Option value="Waiter">Waiter</Option>
+            <Option value="Deejay">Deejay</Option>
+            <Option value="Driver">Driver</Option>
           </Select>
+        </Form.Item>
+        <Form.Item name="pay" label="Salary">
+          <InputNumber
+            defaultValue={1000}
+            formatter={(value) =>
+              `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+            parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
+            onChange={onChange}
+          />
         </Form.Item>
         <Form.Item name="description" label="Description">
           <Input.TextArea />

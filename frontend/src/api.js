@@ -7,22 +7,40 @@ const instance = axios.create({
   baseURL: DEV_URL + "/api",
 });
 
-const getJobs = () => {
+const listJobs = () => {
   return instance.get("jobs").then((res) => {
     return res.data;
   });
 };
 
-const getJob = () => {};
+const getJob = (job_id) => {
+  return instance.get(`jobs/${job_id}`).then((res) => {
+    return res.data;
+  });
+};
 
 const createJob = (body) => {
-  return instance.post("jobs").then((res) => {
+  return instance
+    .post("jobs", body, {
+      headers: {
+        // Overwrite Axios's automatically set Content-Type
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
+};
+
+const deleteJob = (job_id) => {
+  return instance.delete(`jobs/${job_id}`).then((res) => {
     return res.data;
   });
 };
 
 export default {
-  getJobs,
+  listJobs,
   getJob,
-  createJob
+  createJob,
+  deleteJob,
 };
