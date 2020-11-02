@@ -1,10 +1,11 @@
 import axios from "axios";
 
 const DEV_URL = "http://localhost:8080";
-const PRODUCTION_URL = "http://";
+const PRODUCTION_URL = "https://adhoccer.et.r.appspot.com";
 
 const instance = axios.create({
-  baseURL: DEV_URL + "/api",
+  baseURL:
+    (process.env.NODE_ENV == "build" ? PRODUCTION_URL : DEV_URL) + "/api",
 });
 
 const listJobs = () => {

@@ -29,7 +29,6 @@ function App() {
             <Menu.Item key="2">
               <a href="/jobs/create">Create Job</a>
             </Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
         </Header>
 
@@ -38,6 +37,7 @@ function App() {
             <Switch>
               <Route path="/jobs/create/success" component={CreateJobSuccess} />
               <Route path="/jobs/create" component={CreateJob} />
+              <Route path="/jobs/:job_id/edit" component={CreateJob} />
               <Route path="/jobs/:job_id" component={ViewJob} />
               <Route path="/" component={Home} />
             </Switch>

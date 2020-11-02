@@ -7,7 +7,9 @@ import {
   Button,
   Select,
   Row,
+  Col,
   InputNumber,
+  PageHeader,
 } from "antd";
 import { useHistory } from "react-router-dom";
 import "./App.css";
@@ -17,10 +19,10 @@ const { Option } = Select;
 
 const layout = {
   labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { span: 8 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
+  wrapperCol: { offset: 8, span: 8 },
 };
 
 export default function CreateJob(props) {
@@ -63,49 +65,51 @@ export default function CreateJob(props) {
       align="middle"
       style={{ minHeight: "90vh" }}
     >
-      <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
-        <Form.Item name="name" label="Name" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="category"
-          label="Category"
-          rules={[{ required: true }]}
-        >
-          <Select
-            placeholder="Select an option"
-            allowClear
+      <Col span={24}>
+        <h2 style={{ textAlign: "center", margin: "30px" }}>
+          Please fill up the form below to create a new job posting
+        </h2>
+        <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="category"
+            label="Category"
+            rules={[{ required: true }]}
           >
-            <Option value="Waiter">Waiter</Option>
-            <Option value="Deejay">Deejay</Option>
-            <Option value="Driver">Driver</Option>
-          </Select>
-        </Form.Item>
-        <Form.Item name="pay" label="Salary">
-          <InputNumber
-            defaultValue={1000}
-            formatter={(value) =>
-              `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            }
-            parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
-            onChange={onChange}
-          />
-        </Form.Item>
-        <Form.Item name="description" label="Description">
-          <Input.TextArea />
-        </Form.Item>
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-          <Button htmlType="button" onClick={onReset}>
-            Reset
-          </Button>
-          <Button type="link" htmlType="button" onClick={onFill}>
-            Fill form
-          </Button>
-        </Form.Item>
-      </Form>
+            <Select placeholder="Select an option" allowClear>
+              <Option value="Waiter">Waiter</Option>
+              <Option value="Deejay">Deejay</Option>
+              <Option value="Driver">Driver</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item name="pay" label="Salary">
+            <InputNumber
+              defaultValue={1000}
+              formatter={(value) =>
+                `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              }
+              parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
+              onChange={onChange}
+            />
+          </Form.Item>
+          <Form.Item name="description" label="Description">
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item {...tailLayout}>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+            <Button htmlType="button" onClick={onReset}>
+              Reset
+            </Button>
+            <Button type="link" htmlType="button" onClick={onFill}>
+              Fill form
+            </Button>
+          </Form.Item>
+        </Form>
+      </Col>
     </Row>
   );
 }

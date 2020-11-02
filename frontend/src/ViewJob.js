@@ -14,6 +14,7 @@ import {
 import { Link, useParams, useHistory } from "react-router-dom";
 import "./App.css";
 import api from "./api";
+import utils from "./utils";
 
 const contentStyle = {
   height: "320px",
@@ -52,14 +53,18 @@ export default function ViewJob(props) {
     });
   };
 
+  const handleEdit = () => {
+    history.push(`/jobs/${job_id}/edit`);
+  };
+
   return (
     <>
       <Row justify="center">
-        <Col span={12}>
+        <Col span={10}>
           <PageHeader
             title={job.name}
             extra={[
-              <Button key="1" type="primary">
+              <Button key="1" type="primary" onClick={handleEdit}>
                 Edit job
               </Button>,
               <Button key="2" type="primary" danger onClick={confirmDelete}>
@@ -68,15 +73,19 @@ export default function ViewJob(props) {
             ]}
           />
           <Carousel autoplay>
-            <div>
-              <h3 style={contentStyle}>1</h3>
-            </div>
-            <div>
-              <h3 style={contentStyle}>2</h3>
-            </div>
-            <div>
-              <h3 style={contentStyle}>3</h3>
-            </div>
+            {job.category &&
+              utils.getJobImages(job.category) &&
+              utils.getJobImages(job.category).map((imageUrl, id) => {
+                return (
+                  <img
+                    key={id}
+                    src={imageUrl}
+                    height={400}
+                    width={400}
+                    alt={"Job-specific image"}
+                  />
+                );
+              })}
           </Carousel>
           <Divider />
           <Descriptions title="Job Info" column={1}>
