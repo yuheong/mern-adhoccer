@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  useHistory,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import CreateJob from "./CreateJob";
 import CreateJobSuccess from "./CreateJobSuccess";
 import ViewJob from "./ViewJob";
+import UpdateJob from "./UpdateJob";
 
 const { Header, Content } = Layout;
 
@@ -37,7 +31,7 @@ function App() {
             <Switch>
               <Route path="/jobs/create/success" component={CreateJobSuccess} />
               <Route path="/jobs/create" component={CreateJob} />
-              <Route path="/jobs/:job_id/edit" component={CreateJob} />
+              <Route path="/jobs/:job_id/edit" component={UpdateJob} />
               <Route path="/jobs/:job_id" component={ViewJob} />
               <Route path="/" component={Home} />
             </Switch>

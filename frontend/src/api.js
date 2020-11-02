@@ -33,6 +33,19 @@ const createJob = (body) => {
     });
 };
 
+const updateJob = (job_id, body) => {
+  return instance
+    .put(`jobs/${job_id}`, body, {
+      headers: {
+        // Overwrite Axios's automatically set Content-Type
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
+};
+
 const deleteJob = (job_id) => {
   return instance.delete(`jobs/${job_id}`).then((res) => {
     return res.data;
@@ -43,5 +56,6 @@ export default {
   listJobs,
   getJob,
   createJob,
+  updateJob,
   deleteJob,
 };

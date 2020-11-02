@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Result, Button } from "antd";
 import { Link, useLocation } from "react-router-dom";
-//import "./App.css";
-import api from "./api";
 
 export default function CreateJobSuccess(props) {
   let { state } = useLocation();
-  console.log(state)
+  console.log(state);
 
   return (
     <Result
