@@ -83,6 +83,8 @@ export default function UpdateJob(props) {
               <Option value="Waiter">Waiter</Option>
               <Option value="Deejay">Deejay</Option>
               <Option value="Driver">Driver</Option>
+              <Option value="Bartender">Bartender</Option>
+              <Option value="Chef">Chef</Option>
             </Select>
           </Form.Item>
           <Form.Item name="pay" label="Salary">
