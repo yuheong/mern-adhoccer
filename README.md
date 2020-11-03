@@ -1,16 +1,21 @@
 # Adhoccer Platform for Ad-hoc Jobs creation and management
 
-## To run Node backend locally:
-Start mongod locally:
-- On MacOS (Catalina): ```mongod --dbpath=/Users/yuhembp/data/db```
+## To run application locally:
+Clone this repository
 
-Now, start backend node server
-- Clone this repo and ensure you are in ```main``` branch
-- ```cd backend```
-- Run command ```npm start```
+```cd``` into this directory.
 
-Use Postman collections to test the API locally (```Adhoccer.postman_collection.json```)
+Run ```docker-compose up``` within this directory to start both the backend (express server) and frontend (React App) containers, along with the MongoDB container.
+
+Use Postman collections to test the API locally (```Postman_Collections/Adhoccer.postman_collection.json```)
 
 To run tests:
 - ```cd backend```
 - ```npm run test```
+
+To access frontend locally: http://localhost:3000
+
+## Deployed endpoints:
+Backend: https://adhoccer.et.r.appspot.com/
+
+Frontend: https://adhoccer.netlify.app/
