@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  Card,
   Button,
-  Select,
   Divider,
   Row,
   Col,
@@ -10,6 +8,7 @@ import {
   PageHeader,
   Modal,
   Descriptions,
+  message,
 } from "antd";
 import { Link, useParams, useHistory } from "react-router-dom";
 import "./App.css";
@@ -35,6 +34,10 @@ export default function ViewJob(props) {
     });
   }, []);
 
+  const deleteSuccess = () => {
+    message.success("Successfully deleted job");
+  };
+
   const confirmDelete = () => {
     Modal.confirm({
       title: "Confirm Deletion",
@@ -44,6 +47,7 @@ export default function ViewJob(props) {
           .deleteJob(job_id)
           .then((res) => {
             console.log(res);
+            deleteSuccess();
             history.push("/");
           })
           .catch((err) => {
@@ -97,7 +101,6 @@ export default function ViewJob(props) {
               {job.description}
             </Descriptions.Item>
           </Descriptions>
-          {job_id}
         </Col>
       </Row>
     </>

@@ -47,7 +47,7 @@ export default function UpdateJob(props) {
       .updateJob(job_id, jobObject)
       .then((res) => {
         console.log(res);
-        //history.push("/jobs/create/success", [values]);
+        history.push(`/jobs/${job_id}/edit/success`, [values]);
       })
       .catch((err) => {
         console.log(err);

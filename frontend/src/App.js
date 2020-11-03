@@ -7,6 +7,7 @@ import CreateJob from "./CreateJob";
 import CreateJobSuccess from "./CreateJobSuccess";
 import ViewJob from "./ViewJob";
 import UpdateJob from "./UpdateJob";
+import UpdateJobSuccess from "./UpdateJobSuccess";
 
 const { Header, Content } = Layout;
 
@@ -31,6 +32,10 @@ function App() {
             <Switch>
               <Route path="/jobs/create/success" component={CreateJobSuccess} />
               <Route path="/jobs/create" component={CreateJob} />
+              <Route
+                path="/jobs/:job_id/edit/success"
+                component={UpdateJobSuccess}
+              />
               <Route path="/jobs/:job_id/edit" component={UpdateJob} />
               <Route path="/jobs/:job_id" component={ViewJob} />
               <Route path="/" component={Home} />
