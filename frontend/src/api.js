@@ -5,7 +5,7 @@ const PRODUCTION_URL = "https://adhoccer.et.r.appspot.com";
 
 const instance = axios.create({
   baseURL:
-    (process.env.NODE_ENV == "build" ? PRODUCTION_URL : DEV_URL) + "/api",
+    (process.env.NODE_ENV == "production" ? PRODUCTION_URL : DEV_URL) + "/api",
 });
 
 const listJobs = () => {

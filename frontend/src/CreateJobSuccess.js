@@ -10,12 +10,16 @@ export default function CreateJobSuccess(props) {
     <Result
       status="success"
       title={`Successfully Created Job: ${state[0].name}`}
-      subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
       extra={[
+        <p>Category: {state[0].category}</p>,
+        <p>Salary: {state[0].pay}</p>,
+        <p>Description: {state[0].description}</p>,
         <Button type="primary" key="console">
-          Go to Homepage
+          <Link to="/">Go to Homepage</Link>
         </Button>,
-        <Button key="create">Create Another Job</Button>,
+        <Button key="create">
+          <Link to="/jobs/create">Create Another Job</Link>
+        </Button>,
       ]}
     />
   );

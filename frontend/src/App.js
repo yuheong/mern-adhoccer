@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout, Menu } from "antd";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import CreateJob from "./CreateJob";
@@ -18,10 +18,10 @@ function App() {
           <div className="logo" />
           <Menu theme="dark" mode="horizontal">
             <Menu.Item key="1">
-              <a href="/">View Jobs</a>
+              <Link to="/">View Jobs</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <a href="/jobs/create">Create Job</a>
+              <Link to="/jobs/create">Create Job</Link>
             </Menu.Item>
           </Menu>
         </Header>
