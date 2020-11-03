@@ -47,10 +47,10 @@ export default function CreateJob(props) {
 
   const onFill = () => {
     form.setFieldsValue({
-      name: "Event DJ at Club Med",
+      name: "Event DJ at Sentosa Beach Club",
       category: "Deejay",
       pay: 3500,
-      description: "Blah",
+      description: "Blah blah blah",
     });
   };
 
