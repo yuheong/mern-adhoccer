@@ -5,7 +5,7 @@ Clone this repository
 
 ```cd``` into this directory.
 
-Run ```docker-compose up``` within this directory to start both the backend (express server) and frontend (React App) containers, along with the MongoDB container.
+Run ```docker-compose up --build``` within this directory to start both the backend (express server) and frontend (React App) containers, along with the MongoDB container.
 
 Use Postman collections to test the API locally (```Postman_Collections/Adhoccer.postman_collection.json```)
 
